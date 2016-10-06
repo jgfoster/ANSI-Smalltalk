@@ -1,0 +1,102 @@
+| package |
+package := Package name: 'ANSI Spec Parser'.
+package paxVersion: 1;
+	basicComment: ''.
+
+package basicPackageVersion: '0.009'.
+
+package imageStripperBytes: (ByteArray fromBase64String: 'IVNUQiAzIEYPDQAEAAAASW1hZ2VTdHJpcHBlcgAAAABSAAAAEAAAAEFOU0kgU3BlYyBQYXJzZXJS
+AAAAEAAAAFJ1bnRpbWVcQU5TSS5leGWaAAAAUgAAABAAAABEb2xwaGluIE1WUCBCYXNlUgAAABUA
+AABSdW50aW1lU2Vzc2lvbk1hbmFnZXLvvyUAUgAAAD4AAABBbnNpU2hlbGwgYWxsSW5zdGFuY2Vz
+IGlzRW1wdHkgaWZUcnVlOiBbQW5zaVNoZWxsIHNob3dTYW1wbGVdLgAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAA==').
+
+package classNames
+	add: #AnsiChapter;
+	add: #AnsiComponent;
+	add: #AnsiMessage;
+	add: #AnsiMessageShell;
+	add: #AnsiParameter;
+	add: #AnsiProtocol;
+	add: #AnsiShell;
+	add: #AnsiStandard;
+	add: #GsAnsi;
+	yourself.
+
+package binaryGlobalNames: (Set new
+	yourself).
+
+package globalAliases: (Set new
+	yourself).
+
+package setPrerequisites: (IdentitySet new
+	add: '..\..\..\Core\Object Arts\Dolphin\Base\Dolphin';
+	add: '..\..\..\Core\Object Arts\Dolphin\MVP\Views\Cards\Dolphin Card Containers';
+	add: '..\..\..\Core\Object Arts\Dolphin\MVP\Presenters\Prompters\Dolphin Choice Prompter';
+	add: '..\..\..\Core\Object Arts\Dolphin\MVP\Views\Common Controls\Dolphin Common Controls';
+	add: '..\..\..\Core\Object Arts\Dolphin\MVP\Dialogs\Common\Dolphin Common Dialogs';
+	add: '..\..\..\Core\Object Arts\Dolphin\MVP\Models\List\Dolphin List Models';
+	add: '..\..\..\Core\Object Arts\Dolphin\MVP\Presenters\List\Dolphin List Presenter';
+	add: '..\..\..\Core\Object Arts\Dolphin\MVP\Base\Dolphin MVP Base';
+	add: '..\..\..\Core\Object Arts\Dolphin\MVP\Presenters\Text\Dolphin Rich Text Presenter';
+	add: '..\..\..\Core\Object Arts\Dolphin\MVP\Presenters\Text\Dolphin Text Presenter';
+	add: '..\..\..\Core\Object Arts\Dolphin\MVP\Type Converters\Dolphin Type Converters';
+	yourself).
+
+package!
+
+"Class Definitions"!
+
+Object subclass: #AnsiComponent
+	instanceVariableNames: 'stream section sectionNumber name'
+	classVariableNames: ''
+	poolDictionaries: ''
+	classInstanceVariableNames: ''!
+Object subclass: #AnsiStandard
+	instanceVariableNames: 'stream chapters protocols globals classes messages'
+	classVariableNames: ''
+	poolDictionaries: ''
+	classInstanceVariableNames: 'default'!
+Object subclass: #GsAnsi
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	classInstanceVariableNames: ''!
+AnsiComponent subclass: #AnsiChapter
+	instanceVariableNames: 'introduction protocols'
+	classVariableNames: ''
+	poolDictionaries: ''
+	classInstanceVariableNames: ''!
+AnsiComponent subclass: #AnsiMessage
+	instanceVariableNames: 'protocol selector names synopsis definition parameters returnValue errors'
+	classVariableNames: ''
+	poolDictionaries: ''
+	classInstanceVariableNames: ''!
+AnsiComponent subclass: #AnsiParameter
+	instanceVariableNames: 'protocols isCaptured'
+	classVariableNames: ''
+	poolDictionaries: ''
+	classInstanceVariableNames: ''!
+AnsiComponent subclass: #AnsiProtocol
+	instanceVariableNames: 'chapter globals globalDescription isClass conformsTo description messages'
+	classVariableNames: ''
+	poolDictionaries: ''
+	classInstanceVariableNames: ''!
+Shell subclass: #AnsiMessageShell
+	instanceVariableNames: 'definitionPresenter errorPresenter namePresenter parameterListPresenter returnValuePresenter synopsisPresenter'
+	classVariableNames: ''
+	poolDictionaries: ''
+	classInstanceVariableNames: ''!
+Shell subclass: #AnsiShell
+	instanceVariableNames: 'chapterDescriptionPresenter chapterNumberPresenter chapterTitlePresenter classListPresenter conformsToListPresenter globalDescriptionPresenter globalListPresenter globalNamesPresenter messageListPresenter protocolDescriptionPresenter protocolListPresenter protocolNamePresenter sectionPresenter'
+	classVariableNames: ''
+	poolDictionaries: ''
+	classInstanceVariableNames: 'default'!
+
+"Global Aliases"!
+
+
+"Loose Methods"!
+
+"End of package definition"!
+
